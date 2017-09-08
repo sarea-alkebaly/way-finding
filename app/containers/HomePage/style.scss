@@ -1,0 +1,11 @@
+
+@import "~@debijenkorf/core-assets/src/scss/variables";
+
+.header {
+  border-top: thick solid $brand-primary;
+  .header-logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+  }
+}
