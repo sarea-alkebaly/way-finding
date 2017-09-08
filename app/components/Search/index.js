@@ -11,8 +11,8 @@ import style from './style.scss';
 function Search() {
   return (
     <div className="d-flex search">
-      <form className="form--inline has-success">
-        <input type="text" className="form-control" placeholder="Zoeken (bijv, dames, thuis, gucci)" />
+      <form className={['form-control', true ? 'has-success' : ''].join(' ')}>
+        <input type="text" className="form-control search-input" placeholder="Zoeken (bijv, dames, thuis, gucci)" />
         <i className="dbk-icon dbk-icon-r_search" />
       </form>
     </div>
