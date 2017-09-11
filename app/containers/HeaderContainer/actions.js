@@ -5,11 +5,11 @@
  */
 
 import {
-  DEFAULT_ACTION,
+  TOGGLE_OFF_CANVAS,
 } from './constants';
 
-export function defaultAction() {
+export function toggleOffCanvas() {
   return {
-    type: DEFAULT_ACTION,
+    type: TOGGLE_OFF_CANVAS,
   };
 }

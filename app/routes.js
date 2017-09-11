@@ -24,7 +24,9 @@ export default function createRoutes(store) {
         const importModules = Promise.all([
           System.import('containers/HomePage'),
           System.import('containers/HeaderContainer/reducer'),
-          System.import('containers/HeaderContainer/sagas')
+          System.import('containers/HeaderContainer/sagas'),
+          System.import('containers/StoreListContainer/reducer'),
+          System.import('containers/StoreListContainer/sagas'),
         ]);
 
         const renderRoute = loadModule(cb);
@@ -32,10 +34,34 @@ export default function createRoutes(store) {
         importModules.then(([
           component,
           headerReducer,
-          headerSagas
+          headerSagas,
+          storeListReducer,
+          storeListSagas,
         ]) => {
           injectReducer('headerContainer', headerReducer.default);
           injectSagas(headerSagas.default);
+          injectReducer('storeListContainer', storeListReducer.default);
+          injectSagas(storeListSagas.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
+      path: '/store/:storeName',
+      name: 'storeContainer',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          import('containers/StoreContainer/reducer'),
+          import('containers/StoreContainer/sagas'),
+          import('containers/StoreContainer'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('storeContainer', reducer.default);
+          injectSagas(sagas.default);
           renderRoute(component);
         });
 

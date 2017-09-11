@@ -4,4 +4,4 @@
  *
  */
 
-export const DEFAULT_ACTION = 'app/HeaderContainer/DEFAULT_ACTION';
+export const TOGGLE_OFF_CANVAS = 'app/NavigationContainer/TOGGLE_OFF_CANVAS';

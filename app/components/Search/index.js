@@ -3,18 +3,22 @@
 * Search
 *
 */
-
+// dbk-icon dbk-icon-r_search
 import React from 'react';
-import style from './style.scss';
+import './style.scss';
 
 
 function Search() {
   return (
-    <div className="d-flex search">
-      <form className={['form-control', true ? 'has-success' : ''].join(' ')}>
-        <input type="text" className="form-control search-input" placeholder="Zoeken (bijv, dames, thuis, gucci)" />
-        <i className="dbk-icon dbk-icon-r_search" />
-      </form>
+    <div className="search-container">
+      <hr className="m-0" />
+      <div className="d-flex p-3">
+        <input type="search" className="form-control" placeholder="Zoeken (bijv, dames, thuis, gucci)" />
+        <button className="input-search" type="button">
+          <i className="dbk-icon dbk-icon-r_search"></i>
+        </button>
+      </div>
+      <hr className="m-0" />
     </div>
   );
 }

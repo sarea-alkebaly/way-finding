@@ -10,16 +10,18 @@
  */
 
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
-import messages from './messages';
-import style from './style.scss';
+import './style.scss';
 import HeaderContainer from '../../containers/HeaderContainer';
+import StoreListContainer from '../../containers/StoreListContainer';
+import Footer from '../../components/Footer';
 
 export default class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
       <div>
-          <HeaderContainer />
+        <HeaderContainer />
+        <StoreListContainer />
+        <Footer />
       </div>
     );
   }
