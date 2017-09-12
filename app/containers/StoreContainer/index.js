@@ -8,6 +8,8 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import makeSelectStoreContainer from './selectors';
 import StoreDetails from '../../components/StoreDetails';
+import HeaderContainer from '../../containers/HeaderContainer';
+import Footer from '../../components/Footer';
 import { requestStore } from './actions';
 
 export class StoreContainer extends React.Component { // eslint-disable-line react/prefer-stateless-function
@@ -29,7 +31,9 @@ export class StoreContainer extends React.Component { // eslint-disable-line rea
   render() {
     return (
       <div>
+        <HeaderContainer />
         <StoreDetails {...this.props} />
+        <Footer />
       </div>
     );
   }

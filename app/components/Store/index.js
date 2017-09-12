@@ -5,25 +5,26 @@
 */
 
 import React, { PropTypes } from 'react';
-// import styled from 'styled-components';
+import style from './style.scss';
 
-// import { FormattedMessage } from 'react-intl';
-// import messages from './messages';
 
 function Store({ store, selectItem }) {
   // const seless = selectItem(store);
   return (
-    <div
-      className="my-3 p-1"
-      onClick={() => {
-        selectItem(store);
-      }}
-    >
-      <h3>DE BIJENKORF</h3>
-      <h1>{store.name}</h1>
-      <h5>{store.address}</h5>
-      {/* <h1>{seless}</h1> */}
-      <hr />
+    <div className="my-3 p-1 store-container">
+      <div
+        className="store-container"
+        onClick={() => {
+          selectItem(store);
+        }}
+        >
+        <img className="img--fluid store-image" src="https://source.unsplash.com/400x300/?water" alt="A generic square placeholder image with rounded corners in a figure." />
+        <div className="store-detail ">
+          <h3>DE BIJENKORF</h3>
+          <h1>{store.name}</h1>
+          <h5>{store.address}</h5> 
+        </div>
+      </div>
     </div>
   );
 }
@@ -37,3 +38,5 @@ Store.propTypes = {
 };
 
 export default Store;
+
+

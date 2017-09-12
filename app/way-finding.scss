@@ -2,5 +2,10 @@ $directory-font: "~@debijenkorf/core-assets/assets/fonts";
 $directory-image: "~@debijenkorf/core-assets/assets/img";
 @import "~@debijenkorf/core-assets/src/scss/core-assets.scss";
 
-
-
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}

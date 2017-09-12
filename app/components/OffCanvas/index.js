@@ -15,8 +15,9 @@ function OffCanvas({ isOffCanvasOpen, toggleOffCanvas }) {
       <div
         onClick={toggleOffCanvas}
         role="button"
+        className="p-3 f-right"
       >
-        X
+        <i className="dbk-icon dbk-icon--cross2"></i>
       </div>
     </div>
   );

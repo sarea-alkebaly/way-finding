@@ -29,29 +29,58 @@ function setupDb() {
   db.get('stores').push(store3).value();
 
   db.get('store').push({
-    description: 'This is AMSTELVEEN Store',
-    url: 'https://github.com/facebook/react',
-    storeName: store1.name,
     id: uuid(),
-    voteCount: 0,
-    voters: [],
+    description: 'This is description for AMSTELVEEN Store',
+    storeName: store1.name,
+    floors: [
+      {
+        id: uuid(),
+        floorNumber: -1,
+        departments: [
+          {id: uuid(), name: 'Bed- en badtextiel'},
+          {id: uuid(), name: 'Boeken en schrijfwaren'},
+          {id: uuid(), name: 'Kindermode en -schoenen'},
+          {id: uuid(), name: 'Klantenservice'},
+          {id: uuid(), name: 'Koken en tafelen'},
+          {id: uuid(), name: 'Reistassen en koffers'},
+          {id: uuid(), name: 'Onlinebestellingen ophalen'},
+          {id: uuid(), name: 'Woonaccessoires'},
+        ],
+      }, {
+        id: uuid(),
+        floorNumber: 0,
+        departments: [
+          {id: uuid(), name: 'Cosmetica en geuren'},
+          {id: uuid(), name: 'Damesschoenen'},
+          {id: uuid(), name: 'Herenaccessoires en -lederwaren'},
+          {id: uuid(), name: 'Herenmode en -schoenen'},
+          {id: uuid(), name: 'Horloges en sieraden'},
+          {id: uuid(), name: 'Meesterbanketbakker'},
+        ],
+      }, {
+        id: uuid(),
+        floorNumber: 1,
+        departments: [
+          {id: uuid(), name: 'Beenmode'},
+          {id: uuid(), name: 'Damesaccessoires'},
+          {id: uuid(), name: 'Damesmode'},
+          {id: uuid(), name: 'Lingerie'},
+          {id: uuid(), name: 'Restaurant La Ruche'},
+          {id: uuid(), name: 'Toiletten'},
+        ],
+      },
+    ],
   }).value();
 
   db.get('store').push({
-    description: 'This is AMSTERDAM Store',
-    url: 'https://22seven.com',
+    description: 'This is description for AMSTERDAM Store',
     storeName: store2.name,
     id: uuid(),
-    voteCount: 0,
-    voters: [],
   }).value();
   db.get('store').push({
-    description: 'This is DEN HAAG store',
-    url: 'https://google.com',
+    description: 'This is description for DEN HAAG store',
     storeName: store3.name,
     id: uuid(),
-    voteCount: 0,
-    voters: [],
   }).value();
 
   return db;

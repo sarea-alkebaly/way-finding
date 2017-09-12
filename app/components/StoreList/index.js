@@ -6,19 +6,21 @@
 
 import React, { PropTypes } from 'react';
 import Store from '../Store';
-// import { FormattedMessage } from 'react-intl';
-// import messages from './messages';
 
 function StoreList({ stores, selectStore }) {
   const storeList = stores.map((store) => (
-    <Store
+    <div 
+      className="col-sm-12 col-md-6 col-lg-4 p-2"
       key={store.name}
-      store={store}
-      selectItem={selectStore}
-    />
+    >  
+      <Store
+        store={store}
+        selectItem={selectStore}
+      />
+    </div>
   ));
   return (
-    <div className="mt-3 pt-3 t-center">
+    <div className="mt-3 pt-3 t-center row">
       {storeList}
     </div>
   );

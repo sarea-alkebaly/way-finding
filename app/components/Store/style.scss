@@ -1,0 +1,32 @@
+@import "~@debijenkorf/core-assets/src/scss/variables";
+
+.store-container {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+.store-image {
+  position: relative;
+  max-width: 300px;
+  z-index: 1;
+  -moz-transition: all 0.7s;
+  -webkit-transition: all 0.7s;
+  transition: all 0.7s;
+  &:hover {
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+}
+.store-detail {
+  background-color: $white;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  width: 200px;
+  top: 85%;
+  left: 50%;
+  z-index: 100;
+}
