@@ -11,7 +11,7 @@ import React from 'react';
 function StoreDetails({ store, storeName }) {
   return (
     <div>
-      <h1>{store.name}</h1>
+      <h1>{store[0].description}</h1>
       <h1>{storeName}</h1>
     </div>
   );
