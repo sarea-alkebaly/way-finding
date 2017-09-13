@@ -27,7 +27,6 @@ export class StoreContainer extends React.Component { // eslint-disable-line rea
       this.props.requestStore(newProps.storeName);
     }
   }
-
   render() {
     return (
       <div>

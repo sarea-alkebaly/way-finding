@@ -5,41 +5,40 @@
 */
 
 import React, { PropTypes } from 'react';
-// import Immutable from 'immutable';
 import './style.scss';
 
 
 function StoreDetails({ store }) {
-  const renderStore = store.map((s) => (
-    <div key={s.id}>
-      <span className="pt-2">
-      </span>
-      <h4>{s.storeName}
-      </h4>
-      <h4> {s.description}</h4>
+  const renderStoreDetails = store.map((s) => (
+    <div key={s.id} >
+      <h2 className="t-center p-2">{s.storeName}</h2>
+      <div className="d-flex flex-wrap justify-content-md-between">
+        {
+          s.floors.map((floor) => (
+            <div key={floor.id} className="d-flex col-sm-12 col-md-6 col-lg-4 p-3">
+              <div>
+                <h6>ETAGE</h6>
+                <i className={`logo--floor--${floor.floorNumber}`}></i>
+              </div>
+              <div className="floorplan-list">
+                {
+                  floor.departments.map((department) => (
+                    <div key={department.id} className="pl-1">
+                      <p className="pl-2 t-underline--fancy-hover floorplan-list-item">- {department.name}</p>
+                    </div>
+                  ))
+                }
+              </div>
+            </div>
+          ))
+        }
+      </div>
+      <h4>{s.description}</h4>
     </div>
   ));
-  // const floor = floors.map((floor) => (
-  //   <div key={floor.id}>
-  //     <span className="pt-3">
-
-  //     </span>
-  //     <h4>{floor.id} <br /> {floor.floorNumber}</h4>
-  //   </div>
-  // ))
-  // const sarea = Immutable.Map(store);
-  // const sasa = sarea.Immutable.get('floors');
-  // console.log(sasa);
   return (
     <div className="p-3 my-3">
-      {/* <h4>{storeName}</h4>*/}
-      {renderStore}
-      <div className="logo--floor--m1">
-      </div>
-      <div className="logo--floor--0">
-      </div>
-      <div className="logo--floor--1">
-      </div>
+      {renderStoreDetails}
     </div>
   );
 }

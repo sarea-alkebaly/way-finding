@@ -1,9 +1,12 @@
-// @import '../../assets/img/floor-number/floor--0.svg';
+@import "~@debijenkorf/core-assets/src/scss/variables";
 
-// .store-details-container {
-//     height: 100%;
-// }
+.floorplan-list {
+    border-left: 1px solid $grey-400;
+}
 
+.floorplan-list-item {
+    cursor: pointer;
+}
 .logo--floor--m1 {
     background-image: url('../../../app/assets/img/floor_number/floor--m1.svg');
     background-position: right 10px;
