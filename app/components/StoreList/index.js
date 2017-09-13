@@ -9,10 +9,10 @@ import Store from '../Store';
 
 function StoreList({ stores, selectStore }) {
   const storeList = stores.map((store) => (
-    <div 
+    <div
       className="col-sm-12 col-md-6 col-lg-4 p-2"
       key={store.name}
-    >  
+    >
       <Store
         store={store}
         selectItem={selectStore}

@@ -5,7 +5,7 @@
 */
 
 import React, { PropTypes } from 'react';
-import style from './style.scss';
+import './style.scss';
 
 
 function Store({ store, selectItem }) {
@@ -13,16 +13,16 @@ function Store({ store, selectItem }) {
   return (
     <div className="my-3 p-1 store-container">
       <div
-        className="store-container"
+        className=""
         onClick={() => {
           selectItem(store);
         }}
-        >
-        <img className="img--fluid store-image" src="https://source.unsplash.com/400x300/?water" alt="A generic square placeholder image with rounded corners in a figure." />
+      >
+        <img className="img--fluid store-image" src="https://source.unsplash.com/400x300/?water" alt="A generic" />
         <div className="store-detail ">
           <h3>DE BIJENKORF</h3>
           <h1>{store.name}</h1>
-          <h5>{store.address}</h5> 
+          <h5>{store.address}</h5>
         </div>
       </div>
     </div>
@@ -38,5 +38,3 @@ Store.propTypes = {
 };
 
 export default Store;
-
-
