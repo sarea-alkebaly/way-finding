@@ -18,7 +18,7 @@ function StoreDetails({ store }) {
             <div key={floor.id} className="d-flex col-sm-12 col-md-6 col-lg-4 p-3">
               <div>
                 <h6>ETAGE</h6>
-                <i className={`logo--floor--${floor.floorNumber}`}></i>
+                <i className={`logo--floor--${floor.name}`}></i>
               </div>
               <div className="floorplan-list">
                 {
@@ -46,11 +46,10 @@ function StoreDetails({ store }) {
 StoreDetails.propTypes = {
   store: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
     storeName: PropTypes.string.isRequired,
     floors: PropTypes.arrayOf(PropTypes.shape({
       id: PropTypes.string.isRequired,
-      floorNumber: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
       departments: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,

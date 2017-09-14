@@ -51,12 +51,38 @@ function setupDb() {
 
   db.get('store').push({
     id: uuid(),
-    description: 'This is description for AMSTELVEEN Store',
     storeName: store1.name,
+    address: {
+      cityName: 'Amstelveen',
+      postalCode: '1181 ZS',
+      streetName: 'Galerij',
+      number: '152',
+    },
+    imageURL: 'https://www.debijenkorf.nl/content/dam/images_debijenkorf/corporate/storepages/amstelveen-2000x1097.jpg.transform/mobile/image.jpg',
+    openingHours: [{
+      currentWeek: [{
+        sunday: '11.00 - 21.00',
+        saturday: '10.00 - 21.00',
+        tuesday: '10.00 - 21.00',
+        wednesday: '10.00 - 21.00',
+        thursday: '10.00 - 21.00',
+        friday: '10.00 - 21.00',
+        monday: '11.00 - 21.00',
+      }],
+      nextWeek: [{
+        sunday: '11.00 - 21.00',
+        saturday: '10.00 - 21.00',
+        tuesday: '10.00 - 21.00',
+        wednesday: '10.00 - 21.00',
+        thursday: '10.00 - 21.00',
+        friday: '10.00 - 21.00',
+        monday: '11.00 - 21.00',
+      }],
+    }],
     floors: [
       {
         id: uuid(),
-        floorNumber: 'm1',
+        name: 'm1',
         departments: [
           { id: uuid(), name: 'Bed- en badtextiel' },
           { id: uuid(), name: 'Boeken en schrijfwaren' },
@@ -69,7 +95,7 @@ function setupDb() {
         ],
       }, {
         id: uuid(),
-        floorNumber: '0',
+        name: '0',
         departments: [
           { id: uuid(), name: 'Cosmetica en geuren' },
           { id: uuid(), name: 'Damesschoenen' },
@@ -80,7 +106,7 @@ function setupDb() {
         ],
       }, {
         id: uuid(),
-        floorNumber: '1',
+        name: '1',
         departments: [
           { id: uuid(), name: 'Beenmode' },
           { id: uuid(), name: 'Damesaccessoires' },
