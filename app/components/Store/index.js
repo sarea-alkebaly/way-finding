@@ -17,11 +17,15 @@ function Store({ store, selectItem }) {
           selectItem(store);
         }}
       >
-        <img className="img--fluid store-image" src="https://source.unsplash.com/400x300/?building" alt="A generic" />
+        <img className="img--fluid store-image" src={store.imageURL} alt={store.name} />
         <div className="store-detail ">
           <h4>DE BIJENKORF</h4>
           <div className="h2 headings-1 t-uppercase">{store.name}</div>
-          <h5>{store.address}</h5>
+          <h6>
+            {store.address.streetName} {store.address.number} |&nbsp;
+            {store.address.postalCode} |&nbsp;
+            {store.address.cityName}
+          </h6>
         </div>
       </div>
     </div>
@@ -31,7 +35,13 @@ function Store({ store, selectItem }) {
 Store.propTypes = {
   store: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    address: PropTypes.string.isRequired,
+    address: PropTypes.shape({
+      cityName: PropTypes.string.isRequired,
+      postalCode: PropTypes.string.isRequired,
+      streetName: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    }).isRequired,
+    imageURL: PropTypes.string.isRequired,
   }),
   selectItem: PropTypes.func.isRequired,
 };

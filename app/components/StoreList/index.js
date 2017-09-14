@@ -30,7 +30,13 @@ StoreList.propTypes = {
   stores: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
-      address: PropTypes.string.isRequired,
+      address: PropTypes.shape({
+        cityName: PropTypes.string.isRequired,
+        postalCode: PropTypes.string.isRequired,
+        streetName: PropTypes.string.isRequired,
+        number: PropTypes.string.isRequired,
+      }).isRequired,
+      imageURL: PropTypes.string.isRequired,
     })
   ).isRequired,
   selectStore: PropTypes.func.isRequired,

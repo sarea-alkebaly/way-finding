@@ -9,18 +9,39 @@ function setupDb() {
     .value();
 
   const store1 = {
+    id: uuid(),
     name: 'amstelveen',
-    address: 'GALERIJ 152 | 1181 ZS | AMSTELVEEN',
+    address: {
+      cityName: 'Amstelveen',
+      postalCode: '1181 ZS',
+      streetName: 'Galerij',
+      number: '152',
+    },
+    imageURL: 'https://www.debijenkorf.nl/content/dam/images_debijenkorf/corporate/storepages/amstelveen-2000x1097.jpg.transform/mobile/image.jpg',
   };
 
   const store2 = {
+    id: uuid(),
     name: 'amsterdam',
-    address: 'DAM | 1 1012JS | AMSTERDAM',
+    address: {
+      cityName: 'Amsterdam',
+      postalCode: '1012JS',
+      streetName: 'Dam',
+      number: '1',
+    },
+    imageURL: 'https://www.debijenkorf.nl/content/dam/images_debijenkorf/corporate/storepages/amsterdam-2000x1097.jpg.transform/mobile/image.jpg',
   };
 
   const store3 = {
+    id: uuid(),
     name: 'den haag',
-    address: 'WAGENSTRAAT 32 2512 AX | DEN HAAG',
+    address: {
+      cityName: 'Den Haag',
+      postalCode: '2512 AX',
+      streetName: 'Wagenstraat',
+      number: '32',
+    },
+    imageURL: 'https://www.debijenkorf.nl/content/dam/images_debijenkorf/corporate/storepages/denhaag-2000x1097.jpg.transform/mobile/image.jpg',
   };
 
 
