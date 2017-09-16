@@ -10,7 +10,7 @@ import './style.scss';
 
 function Footer() {
   return (
-    <div className="pt-3 my-3 links">
+    <div className="footer-container pt-3 my-3 links">
       <div className="container my-3">
         <div className="row d-flex justify-content-center">
           <div className="px-2"><a href="https://www.facebook.com/debijenkorf" target="_blank" title="Facebook">
