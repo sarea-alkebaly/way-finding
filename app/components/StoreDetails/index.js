@@ -13,7 +13,7 @@ function StoreDetails({ store }) {
   const sortedDays = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 
   const renderStoreDetails = store.map((s) => (
-    <div key={s.id} className="">
+    <div key={s.id} className="store-details-container">
       <h2 className="t-center p-2">{s.storeName}</h2>
       <div className="d-flex flex-wrap justify-content-md-between">
         {
@@ -100,7 +100,7 @@ function StoreDetails({ store }) {
     </div>
   ));
   return (
-    <div className="p-3 my-3">
+    <div className="p-2 my-3">
       {renderStoreDetails}
     </div>
   );

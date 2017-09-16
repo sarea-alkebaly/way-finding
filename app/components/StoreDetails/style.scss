@@ -1,152 +1,152 @@
 @import "~@debijenkorf/core-assets/src/scss/variables";
 
-.floorplan-list {
-    border-left: 1px solid $grey-400;
-    .floorplan-list-item {
-        cursor: pointer;
+.store-details-container {
+    padding: 20px;
+    .logo--floor {
+        background-position: right 10px;
+        background-repeat: no-repeat;
+        float: right;
+        display: block;
+        height: 256px;
+        width: 90px;
     }
-}
-.logo--floor {
-    background-position: right 10px;
-    background-repeat: no-repeat;
-    float: right;
-    display: block;
-    height: 256px;
-    width: 90px;
-}
-.floor--m1 {
-    background-image: url('../../../app/assets/img/floor_number/floor--m1.svg');
-}
-.floor--0 {
-    background-image: url('../../../app/assets/img/floor_number/floor--0.svg');
-}
-.floor--1 {
-    background-image: url('../../../app/assets/img/floor_number/floor--1.svg');
-}
-
-.body-wrapper {
-    position: relative;
-    padding: 15px;
-    margin-top: 40px;
-    width: 100%;
-    display: block;
-    .image-container{
-        clear: both;
-        overflow: hidden;
+    .floor--m1 {
+        background-image: url('../../../app/assets/img/floor_number/floor--m1.svg');
+    }
+    .floor--0 {
+        background-image: url('../../../app/assets/img/floor_number/floor--0.svg');
+    }
+    .floor--1 {
+        background-image: url('../../../app/assets/img/floor_number/floor--1.svg');
+    }
+    .floor--2 {
+        background-image: url('../../../app/assets/img/floor_number/floor--2.svg');
+    }
+    .floor--3 {
+        background-image: url('../../../app/assets/img/floor_number/floor--3.svg');
+    }
+    .floor--4 {
+        background-image: url('../../../app/assets/img/floor_number/floor--4.svg');
+    }
+    .floor--5 {
+        background-image: url('../../../app/assets/img/floor_number/floor--5.svg');
+    }
+    .floorplan-list {
+        border-left: 1px solid $grey-400;
+        .floorplan-list-item {
+            cursor: pointer;
+        }
+    }
+    .body-wrapper {
         position: relative;
-        margin-bottom: 50px;
-        .store-img { 
-            width: 100%;
-        }
-        .address-banner {
-            position: absolute;
-            text-align: center;
-            color: $white !important;
-            font-weight:lighter;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-    }
-    .opening-hours-container {
-        margin-right: auto;
-        margin-left: auto;
-        padding-left: 10px;
-        padding-right: 10px;
-        width: 70%;
-        .opening-hours-table {
-            margin-top: -150px;
-            padding: 40px 60px;
-            background-color: $grey-900;
-            position: relative;
-            .opening-hours-table-item {
-                border-bottom: 1px solid $grey-400;
-                border-width: 0.01em !important;
-                .days {
-                    width: 35%;
-                    float: left;
-                    padding: 10px 15px;
-                    text-align: left;
-                    text-transform: capitalize;
-                    font-weight: 700;
-                }
-                .hours {
-                    width: 65%;
-                    float: right;
-                    padding: 10px 15px;
-                    text-align: right;
-                    text-transform: capitalize;
-                }
-            }
-            .is-today {
-                border-left: 5px solid $yellow !important;
-            }
-        }
-    }
-    .parking-container {
-        padding: 20px;
+        padding: 15px;
         margin-top: 40px;
-        background-color: $grey-200;
-        color: $grey-900;
+        width: 100%;
+        display: block;
+        .image-container{
+            clear: both;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 50px;
+            .store-img { 
+                width: 100%;
+            }
+            .address-banner {
+                position: absolute;
+                text-align: center;
+                color: $white !important;
+                font-weight:lighter;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+        .opening-hours-container {
+            margin-right: auto;
+            margin-left: auto;
+            padding-left: 10px;
+            padding-right: 10px;
+            width: 70%;
+            .opening-hours-table {
+                margin-top: -150px;
+                padding: 40px 60px;
+                background-color: $grey-900;
+                position: relative;
+                .opening-hours-table-item {
+                    border-bottom: 1px solid $grey-400;
+                    border-width: 0.01em !important;
+                    .days {
+                        width: 35%;
+                        float: left;
+                        padding: 10px 15px;
+                        text-align: left;
+                        text-transform: capitalize;
+                        font-weight: 700;
+                    }
+                    .hours {
+                        width: 65%;
+                        float: right;
+                        padding: 10px 15px;
+                        text-align: right;
+                        text-transform: capitalize;
+                    }
+                }
+                .is-today {
+                    border-left: 5px solid $yellow !important;
+                }
+            }
+        }
+        .parking-container {
+            padding: 20px;
+            margin-top: 40px;
+            background-color: $grey-200;
+            color: $grey-900;
+        }
     }
 }
 
 @media (max-width: 1024px) {
-    .body-wrapper {
-        padding: 0;
-        // .image-container{
-        //     .store-img { 
-        //     }
-        //     .address-banner {
-        //         // > h1 { font-size: 2em; }
-        //         // > h2 { font-size: 1.5em; }
-        //         // > h4 { font-size: 1em; }
-        //     }
-        // }
-        .opening-hours-container {
-            width: 75%;
-            .opening-hours-table {
-                // > h1 {
-                //     font-size: 1.5em;
-                // }
-                margin-top: -100px;
-                padding: 5px;
-                .opening-hours-table-item {
-                    .days {
-                        padding: 5px 10px;
-                    }
-                    .hours {
-                        padding: 5px 10px;
+    .store-details-container {
+        .body-wrapper {
+            padding: 0;
+            .opening-hours-container {
+                width: 75%;
+                .opening-hours-table {
+                    margin-top: -100px;
+                    padding: 15px;
+                    padding-bottom: 30px;
+                    .opening-hours-table-item {
+                        .days {
+                            padding: 5px 10px;
+                        }
+                        .hours {
+                            padding: 5px 10px;
+                        }
                     }
                 }
-                // .is-today {
-                // }
             }
         }
     }
 }
 
 @media (max-width: 768px) {
-    .body-wrapper {
-        padding: 0;
-        .image-container{
-            margin-bottom: 80px;
-            // .store-img { 
-            // }
-            .address-banner {
-                > h1 { font-size: 1.5em; }
-                > h2 { font-size: 1em; }
-                > h4 { font-size: 1em; }
+    .store-details-container {
+        padding: 0px;
+        .body-wrapper {
+            padding: 0;
+            .image-container{
+                margin-bottom: 80px;
+                .address-banner {
+                    > h1 { font-size: 1.5em; }
+                    > h2 { font-size: 1em; }
+                    > h4 { font-size: 1em; }
+                }
             }
-        }
-        .opening-hours-container {
-            .opening-hours-table {
-                > h1 { font-size: 1.2em; }
-                // > h4 { font-size: .5em; }
-                // .opening-hours-table-item {
-                // }
-                // .is-today {
-                // }
+            .opening-hours-container {
+                width: 90%;
+                .opening-hours-table {
+                    > h1 { font-size: 1.2em; }
+                }
             }
         }
     }
