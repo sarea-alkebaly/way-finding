@@ -1,25 +1,24 @@
 @import "~@debijenkorf/core-assets/src/scss/variables";
 
-$success-icon: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 23 23'%3E%3Cpath fill='#{$green-200}' d='M9.067 17.488c.236-.022.464-.128.638-.315l9.547-10.238c.38-.407.355-1.037-.05-1.414-.406-.378-1.036-.353-1.413.05l-8.91 9.556-3.697-3.447c-.398-.372-1.035-.353-1.41.05-.38.407-.357 1.036.046 1.412l4.39 4.096c.237.22.557.303.857.25z'/%3E%3C/svg%3E"), "#", "%23");
-
 .search-container {
+  margin-top: 52px;
   background-color: $grey-700;
   position: relative;
   width: 100%;
+  border-bottom: 1px solid $grey-600;
   -webkit-box-shadow: 0px 7px 15px -2px #B2B2B2;
   -moz-box-shadow: 0px 7px 15px -2px #B2B2B2;
   box-shadow: 0px 7px 15px -2px #B2B2B2;
-}
-
-.input-search {
-  background: $grey-300;
-  color: #FFFFFF;
-  font-size: 1.2em;
-  height: 47px;
-  width: 47px;
-  cursor: pointer;
-  &:focus,  {
-    background: $grey-200;
-    outline: none;   
+  .input-search {
+    background: $grey-300;
+    color: #FFFFFF;
+    font-size: 1.2em;
+    height: 47px;
+    width: 47px;
+    cursor: pointer;
+    &:focus,  {
+      background: $grey-200;
+      outline: none;   
+    }
   }
 }

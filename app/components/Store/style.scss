@@ -5,12 +5,12 @@
   overflow: hidden;
   display: flex;
   justify-content: center;
+  text-align: center;
 }
 .store-image {
   position: relative;
   max-width: 300px;
   max-height: 320px;
-  z-index: 1;
   -moz-transition: all 0.7s;
   -webkit-transition: all 0.7s;
   transition: all 0.7s;
@@ -28,6 +28,5 @@
   width: 200px;
   top: 85%;
   left: 50%;
-  z-index: 100;
   cursor: pointer;
 }

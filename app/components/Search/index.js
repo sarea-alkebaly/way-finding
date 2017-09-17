@@ -11,14 +11,12 @@ import './style.scss';
 function Search() {
   return (
     <div className="search-container">
-      <hr className="m-0" />
       <div className="d-flex p-3">
         <input type="search" className="form-control" placeholder="Zoeken (bijv, dames, thuis, gucci)" />
         <button className="input-search" type="button">
           <i className="dbk-icon dbk-icon-r_search"></i>
         </button>
       </div>
-      <hr className="m-0" />
     </div>
   );
 }
