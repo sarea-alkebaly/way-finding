@@ -1,11 +1,18 @@
-// import { take, call, put, select } from 'redux-saga/effects';
+import { put } from 'redux-saga/effects';
+import { takeLatest } from 'redux-saga';
+import { push } from 'react-router-redux';
 
+import { SELECT_HOME } from './constants';
 // Individual exports for testing
-export function* defaultSaga() {
-  // See example in containers/HomePage/sagas.js
+function* pushHome() {
+  yield put(push('/'));
+}
+
+export function* selectHomeSaga() {
+  yield* takeLatest(SELECT_HOME, pushHome);
 }
 
 // All sagas to be loaded
 export default [
-  defaultSaga,
+  selectHomeSaga,
 ];

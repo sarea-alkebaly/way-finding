@@ -12,7 +12,7 @@ import makeSelectHeaderContainer from './selectors';
 // import messages from './messages';
 import Header from '../../components/Header';
 
-import { toggleOffCanvas } from './actions';
+import { toggleOffCanvas, selectHome } from './actions';
 
 export class HeaderContainer extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
@@ -33,6 +33,7 @@ const mapStateToProps = makeSelectHeaderContainer();
 function mapDispatchToProps(dispatch) {
   return {
     toggleOffCanvas: () => dispatch(toggleOffCanvas()),
+    selectHome: () => dispatch(selectHome()),
   };
 }
 
