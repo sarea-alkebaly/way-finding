@@ -25,12 +25,12 @@ function* pushStore(action) {
 }
 
 export function* selectStoreSaga() {
-  yield* takeLatest(SELECT_STORE, pushStore);
+  yield takeLatest(SELECT_STORE, pushStore);
 }
 
 // Individual exports for testing
 export function* fetchStoresSaga() {
-  yield* takeLatest(REQUEST_STORES, fetchStores);
+  yield takeLatest(REQUEST_STORES, fetchStores);
 }
 
 // All sagas to be loaded

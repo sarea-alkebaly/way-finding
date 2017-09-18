@@ -3,13 +3,14 @@ import { takeLatest } from 'redux-saga';
 import { push } from 'react-router-redux';
 
 import { SELECT_HOME } from './constants';
-// Individual exports for testing
+
+
 function* pushHome() {
   yield put(push('/'));
 }
 
 export function* selectHomeSaga() {
-  yield* takeLatest(SELECT_HOME, pushHome);
+  yield takeLatest(SELECT_HOME, pushHome);
 }
 
 // All sagas to be loaded
