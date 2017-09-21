@@ -10,31 +10,33 @@
         height: 256px;
         width: 90px;
     }
-    .floor--m1 {
+    .floor--1 {
         background-image: url('../../../app/assets/img/floor_number/floor--m1.svg');
     }
-    .floor--0 {
+    .floor-0 {
         background-image: url('../../../app/assets/img/floor_number/floor--0.svg');
     }
-    .floor--1 {
+    .floor-1 {
         background-image: url('../../../app/assets/img/floor_number/floor--1.svg');
     }
-    .floor--2 {
+    .floor-2 {
         background-image: url('../../../app/assets/img/floor_number/floor--2.svg');
     }
-    .floor--3 {
+    .floor-3 {
         background-image: url('../../../app/assets/img/floor_number/floor--3.svg');
     }
-    .floor--4 {
+    .floor-4 {
         background-image: url('../../../app/assets/img/floor_number/floor--4.svg');
     }
-    .floor--5 {
+    .floor-5 {
         background-image: url('../../../app/assets/img/floor_number/floor--5.svg');
     }
     .floorplan-list {
         border-left: 1px solid $grey-400;
         .floorplan-list-item {
             cursor: pointer;
+            margin-bottom: 16px;
+            text-align: left;
         }
     }
     .body-wrapper {

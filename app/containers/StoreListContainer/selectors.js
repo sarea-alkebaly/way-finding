@@ -16,7 +16,7 @@ const selectStoreListContainerDomain = () => (state) => state.get('storeListCont
 
 const makeSelectStoreListContainer = () => createSelector(
   selectStoreListContainerDomain(),
-  (substate) => substate.toJS()
+  (substate) => (substate ? substate.toJS() : {})
 );
 
 export default makeSelectStoreListContainer;

@@ -16,7 +16,7 @@ const selectHeaderContainerDomain = () => (state) => state.get('headerContainer'
 
 const makeSelectHeaderContainer = () => createSelector(
   selectHeaderContainerDomain(),
-  (substate) => substate.toJS()
+  (substate) => (substate ? substate.toJS() : {})
 );
 
 export default makeSelectHeaderContainer;

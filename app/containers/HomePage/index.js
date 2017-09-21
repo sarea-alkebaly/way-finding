@@ -9,20 +9,24 @@
  * the linting exception.
  */
 
-import React from 'react';
+import React, { PropTypes } from 'react';
 import './style.scss';
 import HeaderContainer from '../../containers/HeaderContainer';
-import StoreListContainer from '../../containers/StoreListContainer';
 import Footer from '../../components/Footer';
 
 export default class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+  static propTypes = {
+    children: PropTypes.element,
+  }
+
   render() {
     return (
       <div>
         <HeaderContainer />
-        <StoreListContainer />
+        {this.props.children}
         <Footer />
       </div>
     );
   }
 }
+

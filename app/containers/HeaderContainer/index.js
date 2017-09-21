@@ -15,6 +15,7 @@ import Header from '../../components/Header';
 import { toggleOffCanvas, selectHome } from './actions';
 
 export class HeaderContainer extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+
   render() {
     return (
       <div>
@@ -23,10 +24,6 @@ export class HeaderContainer extends React.PureComponent { // eslint-disable-lin
     );
   }
 }
-
-// HeaderContainer.propTypes = {
-//   dispatch: PropTypes.func.isRequired,
-// };
 
 const mapStateToProps = makeSelectHeaderContainer();
 
