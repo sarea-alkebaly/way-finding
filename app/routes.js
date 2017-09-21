@@ -68,6 +68,26 @@ export default function createRoutes(store) {
         importModules.catch(errorLoading);
       },
     }, {
+      path: '/store/:storeName/:departmentName',
+      name: 'departmentListContainer',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          System.import('containers/DepartmentListContainer/reducer'),
+          System.import('containers/DepartmentListContainer/sagas'),
+          System.import('containers/DepartmentListContainer'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('departmentListContainer', reducer.default);
+          injectSagas(sagas.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
       path: '*',
       name: 'notfound',
       getComponent(nextState, cb) {

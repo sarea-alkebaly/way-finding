@@ -5,12 +5,13 @@ const uuid = require('uuid');
 function setupDb() {
   const db = low();
 
-  db.defaults({ stores: [], store: [] })
+  db.defaults({ stores: [], store: [], department: [] })
     .value();
 
   const store1 = {
     id: uuid(),
     name: 'amstelveen',
+    slug: 'amstelveen',
     address: {
       cityName: 'Amstelveen',
       postalCode: '1181 ZS',
@@ -23,6 +24,7 @@ function setupDb() {
   const store2 = {
     id: uuid(),
     name: 'amsterdam',
+    slug: 'amsterdam',
     address: {
       cityName: 'Amsterdam',
       postalCode: '1012JS',
@@ -35,6 +37,7 @@ function setupDb() {
   const store3 = {
     id: uuid(),
     name: 'den haag',
+    slug: 'den-haag',
     address: {
       cityName: 'Den Haag',
       postalCode: '2512 AX',
@@ -52,8 +55,9 @@ function setupDb() {
   db.get('store').push({
     id: uuid(),
     storeName: store1.name,
+    slug: store1.slug,
     address: {
-      cityName: 'Amstelveen',
+      cityName: 'amstelveen',
       postalCode: '1181 ZS',
       streetName: 'Galerij',
       number: '152',
@@ -123,13 +127,70 @@ function setupDb() {
       link: 'http://www.q-park.nl/nl/parkeren-bij-q-park/per-stad/amstelveen',
     },
   }).value();
-
   db.get('store').push({
+    description: 'This is description for AMSTERDAM Store',
+    storeName: store2.name,
+    slug: store2.slug,
+    id: uuid(),
+  }).value();
+  db.get('store').push({
+    description: 'This is description for DEN HAAG store',
+    storeName: store3.name,
+    slug: store3.slug,
+    id: uuid(),
+  }).value();
+
+  db.get('department').push({
+    store: 'amstelveen',
+    slug: 'amstelveen',
+    floorNumber: '0',
+    floorName: 'Parterre',
+    floorId: '59bbca2b809acd6ab8665ce2',
+    name: 'Damesschoenen',
+    departmentSlug: 'damesschoenen',
+    descreption: '',
+    sections: [
+      {
+        _id: '59bd955d809acd6ab8665cef',
+        name: 'First section',
+        descreption: 'Some descreption',
+        type: 'Brand',
+        linked: 'Nike',
+        departmentId: '59bbd53e809acd6ab8665ce9',
+        floorId: '59bbca2b809acd6ab8665ce2',
+        storeId: 7,
+        source: {},
+      },
+      {
+        _id: '59bd98cd809acd6ab8665cf0',
+        name: 'Toilet',
+        descreption: 'You can pee here!',
+        type: 'Toilet',
+        linked: 'Poop!',
+        departmentId: '59bbd53e809acd6ab8665ce9',
+        floorId: '59bbca2b809acd6ab8665ce2',
+        storeId: 7,
+        source: {
+          id: '',
+          geometry: {
+            type: 'Point',
+            coordinates: [
+              [
+                4.8591722813020795,
+                52.30337143636601,
+              ],
+            ],
+          },
+        },
+      },
+    ],
+  }).value();
+  db.get('department').push({
     description: 'This is description for AMSTERDAM Store',
     storeName: store2.name,
     id: uuid(),
   }).value();
-  db.get('store').push({
+  db.get('department').push({
     description: 'This is description for DEN HAAG store',
     storeName: store3.name,
     id: uuid(),
@@ -166,29 +227,10 @@ module.exports = (app) => {
     res.send(store);
   });
 
-  // app.post('/api/stores/:name/store', (req, res) => {
-  //   const existingLink = db.get('store').find({ url: req.body.url }).value();
-  //   if (existingLink) {
-  //     return res.send(403);
-  //   }
-
-  //   const link = Object.assign({}, req.body, {
-  //     id: uuid(),
-  //     voteCount: 0,
-  //     voters: [],
-  //   });
-  //   db.get('store').push(link).value();
-  //   return res.send(link);
-  // });
-
-  // app.post('/api/store/:id/vote', (req, res) => {
-  //   const link = db.get('store').find({ id: req.params.id }).value();
-  //   if (link.voters && link.voters.indexOf(req.body.email) > -1) {
-  //     return res.send(403);
-  //   }
-
-  //   link.voters.push(req.body.email);
-  //   link.voteCount += req.body.increment;
-  //   return res.send(link);
-  // });
+  app.get('/api/store/:storeName/:department', (req, res) => {
+    const department = db.get('department').filter((l) =>
+      l.store === req.params.storeName && l.name === req.params.department
+    ).value();
+    res.send(department);
+  });
 };

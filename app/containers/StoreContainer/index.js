@@ -10,11 +10,12 @@ import makeSelectStoreContainer from './selectors';
 import StoreDetails from '../../components/StoreDetails';
 import HeaderContainer from '../../containers/HeaderContainer';
 import Footer from '../../components/Footer';
-import { requestStore } from './actions';
+import { requestStore, selectDepartment } from './actions';
 
 export class StoreContainer extends React.Component { // eslint-disable-line react/prefer-stateless-function
   static propTypes = {
     storeName: PropTypes.string.isRequired,
+    // departmentName: PropTypes.string.isRequired,
     requestStore: PropTypes.func.isRequired,
   }
 
@@ -43,6 +44,7 @@ const mapStateToProps = makeSelectStoreContainer();
 function mapDispatchToProps(dispatch) {
   return {
     requestStore: (storeName) => dispatch(requestStore(storeName)),
+    selectDepartment: (storeName, departmentName) => dispatch(selectDepartment(storeName, departmentName)),
   };
 }
 

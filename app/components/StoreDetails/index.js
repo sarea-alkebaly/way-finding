@@ -8,7 +8,7 @@ import React, { PropTypes } from 'react';
 import './style.scss';
 
 
-function StoreDetails({ store }) {
+function StoreDetails({ store, selectDepartment }) {
   const today = new Date().getDay();
   const sortedDays = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 
@@ -27,7 +27,12 @@ function StoreDetails({ store }) {
                 {
                   floor.departments.map((department) => (
                     <div key={department.id} className="pl-1">
-                      <p className="floorplan-list-item pl-2 t-underline--fancy-hover">- {department.name}</p>
+                      <p 
+                        className="floorplan-list-item pl-2 t-underline--fancy-hover"
+                        onClick={() => {
+                          selectDepartment(store[0].storeName, department.name);
+                        }}
+                      >- {department.name}</p>
                     </div>
                   ))
                 }
@@ -120,21 +125,22 @@ StoreDetails.propTypes = {
     openingHours: PropTypes.shape({
       currentWeek: PropTypes.object.isRequired,
       nextWeek: PropTypes.object.isRequired,
-    }),
+    }).isRequired,
     floors: PropTypes.arrayOf(PropTypes.shape({
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       departments: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
-      })),
-    })),
+      })).isRequired,
+    })).isRequired,
     parking: PropTypes.shape({
       description: PropTypes.string.isRequired,
       rates: PropTypes.string.isRequired,
       link: PropTypes.string.isRequired,
-    }),
-  })),
+    }).isRequired,
+  })).isRequired,
+  selectDepartment: PropTypes.func.isRequired,
 };
 
 export default StoreDetails;

@@ -8,7 +8,18 @@ import {
   REQUEST_STORE_SUCCEEDED,
   REQUEST_STORE_FAILED,
   REQUEST_STORE,
+  SELECT_DEPARTMENT,
 } from './constants';
+
+export function selectDepartment(storeName, departmentName) {
+  return {
+    type: SELECT_DEPARTMENT,
+    payload: {
+      storeName,
+      departmentName,
+    },
+  };
+}
 
 export function requestStore(storeName) {
   return {
