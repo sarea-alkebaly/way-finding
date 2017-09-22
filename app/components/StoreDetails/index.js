@@ -14,25 +14,26 @@ function StoreDetails({ store, selectDepartment }) {
 
   const renderStoreDetails = store.map((s) => (
     <div key={s.id} className="store-details-container">
-      <h2 className="t-center p-2">{s.storeName}</h2>
+      <h1 className="t-center t-uppercase headings-1 p-2">{s.storeName}</h1>
       <div className="d-flex flex-wrap justify-content-md-between">
         {
           s.floors.map((floor) => (
             <div key={floor.id} className="d-flex col-sm-12 col-md-6 col-lg-4 p-3">
               <div>
                 <h6>ETAGE</h6>
-                <i className={`logo--floor floor--${floor.name}`}></i>
+                <i className={`logo--floor floor-${floor.name}`}></i>
               </div>
               <div className="floorplan-list">
                 {
                   floor.departments.map((department) => (
                     <div key={department.id} className="pl-1">
-                      <p 
+                      <button
                         className="floorplan-list-item pl-2 t-underline--fancy-hover"
+                        role="button"
                         onClick={() => {
-                          selectDepartment(store[0].storeName, department.name);
+                          selectDepartment(s.storeName, department.name);
                         }}
-                      >- {department.name}</p>
+                      >- {department.name}</button>
                     </div>
                   ))
                 }
@@ -128,7 +129,7 @@ StoreDetails.propTypes = {
     }).isRequired,
     floors: PropTypes.arrayOf(PropTypes.shape({
       id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
+      name: PropTypes.number.isRequired,
       departments: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,

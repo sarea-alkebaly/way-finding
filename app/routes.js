@@ -25,8 +25,6 @@ export default function createRoutes(store) {
           System.import('containers/HomePage'),
           System.import('containers/HeaderContainer/reducer'),
           System.import('containers/HeaderContainer/sagas'),
-          System.import('containers/StoreListContainer/reducer'),
-          System.import('containers/StoreListContainer/sagas'),
         ]);
 
         const renderRoute = loadModule(cb);
@@ -35,58 +33,77 @@ export default function createRoutes(store) {
           component,
           headerReducer,
           headerSagas,
-          storeListReducer,
-          storeListSagas,
         ]) => {
           injectReducer('headerContainer', headerReducer.default);
           injectSagas(headerSagas.default);
-          injectReducer('storeListContainer', storeListReducer.default);
-          injectSagas(storeListSagas.default);
           renderRoute(component);
         });
 
         importModules.catch(errorLoading);
       },
-    }, {
-      path: '/store/:storeName',
-      name: 'storeContainer',
-      getComponent(nextState, cb) {
-        const importModules = Promise.all([
-          System.import('containers/StoreContainer/reducer'),
-          System.import('containers/StoreContainer/sagas'),
-          System.import('containers/StoreContainer'),
-        ]);
+      indexRoute: {
+        name: 'storeListContainer',
+        getComponent(nextState, cb) {
+          const importModules = Promise.all([
+            System.import('containers/StoreListContainer/reducer'),
+            System.import('containers/StoreListContainer/sagas'),
+            System.import('containers/StoreListContainer'),
+          ]);
 
-        const renderRoute = loadModule(cb);
+          const renderRoute = loadModule(cb);
 
-        importModules.then(([reducer, sagas, component]) => {
-          injectReducer('storeContainer', reducer.default);
-          injectSagas(sagas.default);
-          renderRoute(component);
-        });
+          importModules.then(([storeListReducer, storeListSagas, component]) => {
+            injectReducer('storeListContainer', storeListReducer.default);
+            injectSagas(storeListSagas.default);
+            renderRoute(component);
+          });
 
-        importModules.catch(errorLoading);
+          importModules.catch(errorLoading);
+        },
       },
-    }, {
-      path: '/store/:storeName/:departmentName',
-      name: 'departmentListContainer',
-      getComponent(nextState, cb) {
-        const importModules = Promise.all([
-          System.import('containers/DepartmentListContainer/reducer'),
-          System.import('containers/DepartmentListContainer/sagas'),
-          System.import('containers/DepartmentListContainer'),
-        ]);
+      childRoutes: [
+        {
+          path: '/store/:storeName',
+          name: 'storeContainer',
+          getComponent(nextState, cb) {
+            const importModules = Promise.all([
+              System.import('containers/StoreContainer/reducer'),
+              System.import('containers/StoreContainer/sagas'),
+              System.import('containers/StoreContainer'),
+            ]);
 
-        const renderRoute = loadModule(cb);
+            const renderRoute = loadModule(cb);
 
-        importModules.then(([reducer, sagas, component]) => {
-          injectReducer('departmentListContainer', reducer.default);
-          injectSagas(sagas.default);
-          renderRoute(component);
-        });
+            importModules.then(([reducer, sagas, component]) => {
+              injectReducer('storeContainer', reducer.default);
+              injectSagas(sagas.default);
+              renderRoute(component);
+            });
 
-        importModules.catch(errorLoading);
-      },
+            importModules.catch(errorLoading);
+          },
+        }, {
+          path: '/store/:storeName/:departmentName',
+          name: 'departmentListContainer',
+          getComponent(nextState, cb) {
+            const importModules = Promise.all([
+              System.import('containers/DepartmentListContainer/reducer'),
+              System.import('containers/DepartmentListContainer/sagas'),
+              System.import('containers/DepartmentListContainer'),
+            ]);
+
+            const renderRoute = loadModule(cb);
+
+            importModules.then(([reducer, sagas, component]) => {
+              injectReducer('departmentListContainer', reducer.default);
+              injectSagas(sagas.default);
+              renderRoute(component);
+            });
+
+            importModules.catch(errorLoading);
+          },
+        },
+      ],
     }, {
       path: '*',
       name: 'notfound',
