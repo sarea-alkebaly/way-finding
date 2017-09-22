@@ -4,23 +4,27 @@
 *
 */
 
-import React from 'react';
+import React, { PropTypes } from 'react';
 // import styled from 'styled-components';
 
 
-function DepartmentList({ storeName, departmentName }) {
+function DepartmentList({ department }) {
+  const renderDepartment = department.map((d) => (
+    <div key={d.store}>{d.store}</div>
+  ));
+
   return (
     <div>
-      {departmentName}
       sarea ala sarea
-      {storeName}
+      {renderDepartment}
     </div>
   );
 }
 
 DepartmentList.propTypes = {
-  departmentName: React.PropTypes.string.isRequired,
-  storeName: React.PropTypes.string.isRequired,
+  department: PropTypes.arrayOf(PropTypes.shape({
+    store: PropTypes.string.isRequired,
+  })).isRequired,
 };
 
 export default DepartmentList;

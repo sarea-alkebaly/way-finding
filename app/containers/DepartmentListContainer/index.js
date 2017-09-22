@@ -6,11 +6,11 @@
 
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-// import { createStructuredSelector } from 'reselect';
 import makeSelectDepartmentListContainer from './selectors';
 import { requestDepartment } from './actions';
 
 import DepartmentList from '../../components/DepartmentList';
+
 
 export class DepartmentListContainer extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   static propTypes = {
@@ -20,7 +20,6 @@ export class DepartmentListContainer extends React.PureComponent { // eslint-dis
   }
 
   componentWillMount() {
-    // console.log('this.props.departmentName', this.props.storeName);
     this.props.requestDepartment(this.props.storeName, this.props.departmentName);
   }
 
