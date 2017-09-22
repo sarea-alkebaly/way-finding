@@ -1,32 +1,82 @@
 @import "~@debijenkorf/core-assets/src/scss/variables";
 
-.store-container {
+// .store-container {
+//   position: relative;
+//   overflow: hidden;
+//   display: flex;
+//   justify-content: center;
+//   text-align: center;
+// }
+// .store-image {
+//   position: relative;
+//   max-width: 300px;
+//   max-height: 320px;
+//   -moz-transition: all 0.7s;
+//   -webkit-transition: all 0.7s;
+//   transition: all 0.7s;
+//   &:hover {
+//     -moz-transform: scale(1.1);
+//     -webkit-transform: scale(1.1);
+//     transform: scale(1.1);
+//   }
+// }
+// .store-detail {
+//   background-color: $white;
+//   position: absolute;
+//   transform: translate(-50%, -50%);
+//   padding: 10px;
+//   width: 200px;
+//   top: 85%;
+//   left: 50%;
+//   cursor: pointer;
+// }
+
+.body-wrapper2 {
   position: relative;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
-.store-image {
-  position: relative;
-  max-width: 300px;
-  max-height: 320px;
-  -moz-transition: all 0.7s;
-  -webkit-transition: all 0.7s;
-  transition: all 0.7s;
-  &:hover {
-    -moz-transform: scale(1.1);
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
+  padding: 15px;
+  margin-top: 40px;
+  width: 100%;
+  display: block;
+  .image-container2{
+      clear: both;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 50px;
+      // width: 300px;
+      height: 300px;
+      max-height: 300px;
+      .store-img2 { 
+          width: 150%;
+          height: 100%;
+          cursor: pointer;
+          position: relative;
+          // max-width: 300px;
+          // max-height: 320px;
+          float: left;
+          float: right;
+          -moz-transition: all 1.2s;
+          -webkit-transition: all 1.2s;
+          transition: all 1.2s;
+          &:hover {
+            -moz-transform: scale(1.1);
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+          }
+      }
   }
-}
-.store-detail {
-  background-color: $white;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  padding: 10px;
-  width: 200px;
-  top: 85%;
-  left: 50%;
-  cursor: pointer;
+  .address-container {
+      margin-right: auto;
+      margin-left: auto;
+      padding-left: 10px;
+      padding-right: 10px;
+      width: 70%;
+      .address-content {
+          margin-top: -150px;
+          padding: 30px 20px;
+          text-align: center;
+          background-color: $white;
+          position: relative;
+      }
+  }
+
 }
