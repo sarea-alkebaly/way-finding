@@ -8,7 +8,6 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import makeSelectDepartmentListContainer from './selectors';
 import { requestDepartment } from './actions';
-
 import DepartmentList from '../../components/DepartmentList';
 
 

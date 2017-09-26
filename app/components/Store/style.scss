@@ -1,82 +1,89 @@
 @import "~@debijenkorf/core-assets/src/scss/variables";
 
-// .store-container {
-//   position: relative;
-//   overflow: hidden;
-//   display: flex;
-//   justify-content: center;
-//   text-align: center;
-// }
-// .store-image {
-//   position: relative;
-//   max-width: 300px;
-//   max-height: 320px;
-//   -moz-transition: all 0.7s;
-//   -webkit-transition: all 0.7s;
-//   transition: all 0.7s;
-//   &:hover {
-//     -moz-transform: scale(1.1);
-//     -webkit-transform: scale(1.1);
-//     transform: scale(1.1);
-//   }
-// }
-// .store-detail {
-//   background-color: $white;
-//   position: absolute;
-//   transform: translate(-50%, -50%);
-//   padding: 10px;
-//   width: 200px;
-//   top: 85%;
-//   left: 50%;
-//   cursor: pointer;
-// }
-
-.body-wrapper2 {
+.store-wrapper {
   position: relative;
   padding: 15px;
   margin-top: 40px;
   width: 100%;
   display: block;
-  .image-container2{
-      clear: both;
-      overflow: hidden;
+  .store-image-container{
+    clear: both;
+    overflow: hidden;
+    position: relative;
+    max-width: 350px;
+    height: 330px;
+    max-height: 330px;
+    margin: 0 auto 50px;
+    .store-img { 
+      width: 150%;
+      height: 100%;
       position: relative;
-      margin-bottom: 50px;
-      // width: 300px;
-      height: 300px;
-      max-height: 300px;
-      .store-img2 { 
-          width: 150%;
-          height: 100%;
-          cursor: pointer;
-          position: relative;
-          // max-width: 300px;
-          // max-height: 320px;
-          float: left;
-          float: right;
-          -moz-transition: all 1.2s;
-          -webkit-transition: all 1.2s;
-          transition: all 1.2s;
-          &:hover {
-            -moz-transform: scale(1.1);
-            -webkit-transform: scale(1.1);
-            transform: scale(1.1);
-          }
+      -moz-transition: all 2s;
+      -webkit-transition: all 2s;
+      transition: all 2s;
+      cursor: pointer;          
+      &:hover {
+        -moz-transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
       }
+    }
   }
   .address-container {
-      margin-right: auto;
-      margin-left: auto;
-      padding-left: 10px;
-      padding-right: 10px;
-      width: 70%;
-      .address-content {
-          margin-top: -150px;
-          padding: 30px 20px;
-          text-align: center;
-          background-color: $white;
-          position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 75%;
+    max-width: 300px;
+    cursor: pointer; 
+    .address-content {
+      margin-top: -125px;
+      padding: 30px 15px;
+      text-align: center;
+      background-color: $white;
+      position: relative;
+      .store-name {
+        padding-bottom: 10px;
+        font-weight: 400;
       }
+      .address {
+        padding:  0 5px;
+        letter-spacing: 1px;
+      }
+    }
+  }
+  &:hover .store-img2 {
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
   }
 
+}
+
+@media (max-width: 768px) {
+  .store-wrapper {
+    .store-image-container{
+      max-width: 330px;
+      height: 270px;
+      max-height: 270px;
+      .store-img {
+        width: 150%;
+        height: 100%;
+      }
+    }
+    .address-container {
+        .address-content {
+          margin-top: -115px;
+          padding: 20px 10px;
+          .store-name {
+            padding-bottom: 5px;
+            font-weight: 400;
+          }
+          .address {
+            padding:  0 5px;
+          }
+        }
+    }
+  }
 }

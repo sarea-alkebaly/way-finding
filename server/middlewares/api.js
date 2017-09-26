@@ -141,147 +141,143 @@ function setupDb() {
   }).value();
 
   db.get('department').push({
-    store: 'amstelveen',
-    slug: 'amstelveen',
-    floorNumber: '0',
-    floorName: 'Parterre',
-    floorId: uuid(),
     name: 'Damesschoenen',
-    departmentSlug: 'damesschoenen',
-    descreption: '',
+    slug: 'damesschoenen',
+    descreption: 'Some description!',
+    store: {
+      name: 'amstelveen',
+      slug: 'amstelveen',
+    },
+    floor: {
+      number: 1,
+      name: 'Etage 1',
+      slug: 'etage-1',
+    },
     sections: [
       {
-        _id: uuid(),
+        id: uuid(),
+        name: 'First section',
+        descreption: 'Some descreption',
+        type: 'brand',
+        brand: {
+          name: 'Nike',
+          slug: 'nike',
+          logo: 'URL',
+        },
+      },
+      {
+        id: uuid(),
         name: 'First section',
         descreption: 'Some descreption',
         type: 'Brand',
-        linked: 'Nike',
-        departmentId: uuid(),
-        floorId: uuid(),
-        storeId: 7,
-        source: {},
+        brand: {
+          name: 'Nike',
+          slug: 'nike',
+          logo: 'URL',
+        },
       },
       {
-        _id: uuid(),
+        id: uuid(),
         name: 'First section',
         descreption: 'Some descreption',
         type: 'Brand',
-        linked: 'Adidas',
-        departmentId: uuid(),
-        floorId: uuid(),
-        storeId: 7,
-        source: {},
+        brand: {
+          name: 'Nike',
+          slug: 'nike',
+          logo: 'URL',
+        },
       },
       {
-        _id: uuid(),
+        id: uuid(),
         name: 'First section',
         descreption: 'Some descreption',
         type: 'Brand',
-        linked: 'rebook',
-        departmentId: uuid(),
-        floorId: uuid(),
-        storeId: 7,
-        source: {},
+        brand: {
+          name: 'Nike',
+          slug: 'nike',
+          logo: 'URL',
+        },
       },
       {
-        _id: uuid(),
+        id: uuid(),
         name: 'First section',
         descreption: 'Some descreption',
         type: 'Brand',
-        linked: 'rara',
-        departmentId: uuid(),
-        floorId: uuid(),
-        storeId: 7,
-        source: {},
+        brand: {
+          name: 'Nike',
+          slug: 'nike',
+          logo: 'URL',
+        },
       },
       {
-        _id: uuid(),
+        id: uuid(),
         name: 'First section',
         descreption: 'Some descreption',
         type: 'Brand',
-        linked: 'Nike2',
-        departmentId: uuid(),
-        floorId: uuid(),
-        storeId: 7,
-        source: {},
+        brand: {
+          name: 'Nike',
+          slug: 'nike',
+          logo: 'URL',
+        },
       },
       {
-        _id: uuid(),
+        id: uuid(),
         name: 'First section',
         descreption: 'Some descreption',
         type: 'Brand',
-        linked: 'Nike3',
-        departmentId: uuid(),
-        floorId: uuid(),
-        storeId: 7,
-        source: {},
+        brand: {
+          name: 'Nike',
+          slug: 'nike',
+          logo: 'URL',
+        },
       },
       {
-        _id: uuid(),
+        id: uuid(),
         name: 'First section',
         descreption: 'Some descreption',
         type: 'Brand',
-        linked: 'Nike4',
-        departmentId: uuid(),
-        floorId: uuid(),
-        storeId: 7,
-        source: {},
+        brand: {
+          name: 'Nike',
+          slug: 'nike',
+          logo: 'URL',
+        },
       },
       {
-        _id: uuid(),
+        id: uuid(),
         name: 'First section',
         descreption: 'Some descreption',
         type: 'Brand',
-        linked: 'Nike5',
-        departmentId: uuid(),
-        floorId: uuid(),
-        storeId: 7,
-        source: {},
+        brand: {
+          name: 'Nike',
+          slug: 'nike',
+          logo: 'URL',
+        },
       },
       {
-        _id: uuid(),
-        name: 'First section',
-        descreption: 'Some descreption',
-        type: 'Brand',
-        linked: 'Nike',
-        departmentId: uuid(),
-        floorId: uuid(),
-        storeId: 7,
-        source: {},
-      },
-      {
-        _id: uuid(),
+        id: uuid(),
         name: 'Toilet',
         descreption: 'You can pee here!',
         type: 'Toilet',
-        linked: 'Poop!',
-        departmentId: uuid(),
-        floorId: uuid(),
-        storeId: 7,
-        source: {
-          id: '',
-          geometry: {
-            type: 'Point',
-            coordinates: [
-              [
-                4.8591722813020795,
-                52.30337143636601,
-              ],
-            ],
-          },
-        },
       },
     ],
   }).value();
   db.get('department').push({
-    description: 'This is description for AMSTERDAM Store',
-    storeName: store2.name,
-    id: uuid(),
+    name: 'rara',
+    slug: 'rara',
+    descreption: 'Some description!',
+    store: {
+      name: 'rara',
+      slug: 'amstelveen',
+    },
   }).value();
   db.get('department').push({
-    description: 'This is description for DEN HAAG store',
-    storeName: store3.name,
-    id: uuid(),
+    name: 'rara',
+    slug: 'rara',
+    descreption: 'Some description!',
+    store: {
+      name: 'rara',
+      slug: 'rara',
+    },
   }).value();
 
   return db;
@@ -316,8 +312,8 @@ module.exports = (app) => {
   });
 
   app.get('/api/store/:storeName/:department', (req, res) => {
-    const department = db.get('department').filter((l) =>
-      l.store === req.params.storeName && l.name === req.params.department
+    const department = db.get('department').filter((d) =>
+      d.store.name === req.params.storeName && d.name === req.params.department
     ).value();
     res.send(department);
   });

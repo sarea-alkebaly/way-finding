@@ -9,21 +9,27 @@ import './style.scss';
 
 function Store({ store, selectItem }) {
   return (
-    <div className="my-3 p-1 body-wrapper2">
+    <div className="my-3 p-1 store-wrapper">
       <div
-        className="image-container2"
+        className="store-image-container"
         role="button"
         onClick={() => {
           selectItem(store);
         }}
       >
-        <img className="img--fluid store-img2" src={store.imageURL} alt={store.name} />
+        <img className="img--fluid store-img" src={store.imageURL} alt={store.name} />
       </div>
-      <div className="address-container">
+      <div 
+        className="address-container"
+        role="button"
+        onClick={() => {
+          selectItem(store);
+        }}
+      >
         <div className="address-content">
-          <h4>DE BIJENKORF</h4>
-          <div className="h2 headings-1 t-uppercase">{store.name}</div>
-          <h6>
+          <h4 className="py-1">DE BIJENKORF</h4>
+          <div className="h2 headings-1 t-uppercase store-name">{store.name}</div>
+          <h6 className="address">
             {store.address.streetName} {store.address.number} |&nbsp;
             {store.address.postalCode} |&nbsp;
             {store.address.cityName}
