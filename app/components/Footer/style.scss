@@ -1,6 +1,9 @@
+@import "~@debijenkorf/core-assets/src/scss/variables";
+
 .footer-container {
     // position: absolute;
     // bottom: 900px;
+    background-color: $grey-900;
 }
 
 a {

@@ -159,7 +159,7 @@ function setupDb() {
         name: 'First section',
         descreption: 'Some descreption',
         type: 'brand',
-        brand: {
+        content: {
           name: 'Nike',
           slug: 'nike',
           logo: 'URL',
@@ -170,7 +170,7 @@ function setupDb() {
         name: 'First section',
         descreption: 'Some descreption',
         type: 'Brand',
-        brand: {
+        content: {
           name: 'Nike',
           slug: 'nike',
           logo: 'URL',
@@ -181,7 +181,7 @@ function setupDb() {
         name: 'First section',
         descreption: 'Some descreption',
         type: 'Brand',
-        brand: {
+        content: {
           name: 'Nike',
           slug: 'nike',
           logo: 'URL',
@@ -192,7 +192,7 @@ function setupDb() {
         name: 'First section',
         descreption: 'Some descreption',
         type: 'Brand',
-        brand: {
+        content: {
           name: 'Nike',
           slug: 'nike',
           logo: 'URL',
@@ -203,7 +203,7 @@ function setupDb() {
         name: 'First section',
         descreption: 'Some descreption',
         type: 'Brand',
-        brand: {
+        content: {
           name: 'Nike',
           slug: 'nike',
           logo: 'URL',
@@ -214,7 +214,7 @@ function setupDb() {
         name: 'First section',
         descreption: 'Some descreption',
         type: 'Brand',
-        brand: {
+        content: {
           name: 'Nike',
           slug: 'nike',
           logo: 'URL',
@@ -225,7 +225,7 @@ function setupDb() {
         name: 'First section',
         descreption: 'Some descreption',
         type: 'Brand',
-        brand: {
+        content: {
           name: 'Nike',
           slug: 'nike',
           logo: 'URL',
@@ -236,9 +236,20 @@ function setupDb() {
         name: 'First section',
         descreption: 'Some descreption',
         type: 'Brand',
-        brand: {
-          name: 'Nike',
-          slug: 'nike',
+        content: {
+          name: 'Gucci',
+          slug: 'gucci',
+          logo: 'URL',
+        },
+      },
+      {
+        id: '12345',
+        name: 'First section',
+        descreption: 'Some descreption',
+        type: 'Brand',
+        content: {
+          name: 'GUESS',
+          slug: 'guess',
           logo: 'URL',
         },
       },
@@ -247,17 +258,11 @@ function setupDb() {
         name: 'First section',
         descreption: 'Some descreption',
         type: 'Brand',
-        brand: {
-          name: 'Nike',
-          slug: 'nike',
+        content: {
+          name: 'Adidas',
+          slug: 'adidas',
           logo: 'URL',
         },
-      },
-      {
-        id: uuid(),
-        name: 'Toilet',
-        descreption: 'You can pee here!',
-        type: 'Toilet',
       },
     ],
   }).value();
@@ -304,14 +309,14 @@ module.exports = (app) => {
     res.send(db.get('stores').toArray().value());
   });
 
-  app.get('/api/store/:name', (req, res) => {
+  app.get('/api/stores/:name', (req, res) => {
     const store = db.get('store').filter((l) =>
       l.storeName === req.params.name
     ).value();
     res.send(store);
   });
 
-  app.get('/api/store/:storeName/:department', (req, res) => {
+  app.get('/api/stores/:storeName/:department', (req, res) => {
     const department = db.get('department').filter((d) =>
       d.store.name === req.params.storeName && d.name === req.params.department
     ).value();

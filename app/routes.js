@@ -102,6 +102,27 @@ export default function createRoutes(store) {
 
             importModules.catch(errorLoading);
           },
+        }, 
+        {
+          path: '/store/:departmentSlug/:sectionsId',
+          name: 'sectionContainer',
+          getComponent(nextState, cb) {
+            const importModules = Promise.all([
+              import('containers/SectionContainer/reducer'),
+              import('containers/SectionContainer/sagas'),
+              import('containers/SectionContainer'),
+            ]);
+    
+            const renderRoute = loadModule(cb);
+    
+            importModules.then(([reducer, sagas, component]) => {
+              injectReducer('sectionContainer', reducer.default);
+              injectSagas(sagas.default);
+              renderRoute(component);
+            });
+    
+            importModules.catch(errorLoading);
+          },
         },
       ],
     }, {

@@ -7,7 +7,7 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import makeSelectDepartmentListContainer from './selectors';
-import { requestDepartment } from './actions';
+import { requestDepartment, selectSection } from './actions';
 import DepartmentList from '../../components/DepartmentList';
 
 
@@ -16,6 +16,7 @@ export class DepartmentListContainer extends React.PureComponent { // eslint-dis
     storeName: PropTypes.string.isRequired,
     departmentName: PropTypes.string.isRequired,
     requestDepartment: PropTypes.func.isRequired,
+    selectSection: PropTypes.func.isRequired,
   }
 
   componentWillMount() {
@@ -37,6 +38,8 @@ function mapDispatchToProps(dispatch) {
   return {
     requestDepartment: (storeName, departmentName) =>
       dispatch(requestDepartment(storeName, departmentName)),
+    selectSection: (departmentSlug, sectionsId) =>
+      dispatch(selectSection(departmentSlug, sectionsId)),
   };
 }
 
