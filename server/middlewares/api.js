@@ -5,7 +5,7 @@ const uuid = require('uuid');
 function setupDb() {
   const db = low();
 
-  db.defaults({ stores: [], store: [], department: [] })
+  db.defaults({ stores: [], store: [], department: [], section: [] })
     .value();
 
   const store1 = {
@@ -155,8 +155,17 @@ function setupDb() {
     },
     sections: [
       {
+        id: '12345',
+        descreption: 'Some descreption',
+        type: 'brand',
+        content: {
+          name: 'BOSS',
+          slug: 'boss',
+          logo: 'URL',
+        },
+      },
+      {
         id: uuid(),
-        name: 'First section',
         descreption: 'Some descreption',
         type: 'brand',
         content: {
@@ -167,7 +176,6 @@ function setupDb() {
       },
       {
         id: uuid(),
-        name: 'First section',
         descreption: 'Some descreption',
         type: 'Brand',
         content: {
@@ -178,7 +186,6 @@ function setupDb() {
       },
       {
         id: uuid(),
-        name: 'First section',
         descreption: 'Some descreption',
         type: 'Brand',
         content: {
@@ -189,7 +196,6 @@ function setupDb() {
       },
       {
         id: uuid(),
-        name: 'First section',
         descreption: 'Some descreption',
         type: 'Brand',
         content: {
@@ -200,7 +206,6 @@ function setupDb() {
       },
       {
         id: uuid(),
-        name: 'First section',
         descreption: 'Some descreption',
         type: 'Brand',
         content: {
@@ -211,7 +216,6 @@ function setupDb() {
       },
       {
         id: uuid(),
-        name: 'First section',
         descreption: 'Some descreption',
         type: 'Brand',
         content: {
@@ -222,7 +226,6 @@ function setupDb() {
       },
       {
         id: uuid(),
-        name: 'First section',
         descreption: 'Some descreption',
         type: 'Brand',
         content: {
@@ -233,7 +236,6 @@ function setupDb() {
       },
       {
         id: uuid(),
-        name: 'First section',
         descreption: 'Some descreption',
         type: 'Brand',
         content: {
@@ -243,8 +245,7 @@ function setupDb() {
         },
       },
       {
-        id: '12345',
-        name: 'First section',
+        id: uuid(),
         descreption: 'Some descreption',
         type: 'Brand',
         content: {
@@ -255,7 +256,6 @@ function setupDb() {
       },
       {
         id: uuid(),
-        name: 'First section',
         descreption: 'Some descreption',
         type: 'Brand',
         content: {
@@ -285,6 +285,31 @@ function setupDb() {
     },
   }).value();
 
+  db.get('section').push({
+    id: '12345',
+    name: 'Fifteenth section',
+    type: 'brand',
+    store: {
+      name: 'Amstelveen',
+      slug: 'amstelveen',
+    },
+    floor: {
+      number: 8,
+      name: 'Etage 2',
+      slug: 'etage-2',
+    },
+    department: {
+      name: 'Damesmode',
+      slug: 'damesschoenen',
+      description: 'Some description!',
+    },
+    brand: {
+      name: 'BOSS',
+      slug: 'boss',
+      logo: 'http://localhost:8282/uploads/logos/a520ffe8-067f-4ad2-886a-fc538184f977.png',
+    }
+  }).value()
+
   return db;
 }
 
@@ -309,17 +334,24 @@ module.exports = (app) => {
     res.send(db.get('stores').toArray().value());
   });
 
-  app.get('/api/stores/:name', (req, res) => {
+  app.get('/api/store/:name', (req, res) => {
     const store = db.get('store').filter((l) =>
       l.storeName === req.params.name
     ).value();
     res.send(store);
   });
 
-  app.get('/api/stores/:storeName/:department', (req, res) => {
+  app.get('/api/store/:storeName/:department', (req, res) => {
     const department = db.get('department').filter((d) =>
       d.store.name === req.params.storeName && d.name === req.params.department
     ).value();
     res.send(department);
+  });
+
+  app.get('/api/:sectionId', (req, res) => {
+    const section = db.get('section').filter((s) =>
+      s.id === req.params.sectionId
+    ).value();
+    res.send(section);
   });
 };

@@ -10,13 +10,18 @@ const selectSectionContainerDomain = () => (state) => state.get('sectionContaine
  */
 
 
+// const selectRouteDepartmentSlug = () => (state, props) => props.params.departmentSlug;
+const selectRouteSectionId = () => (state, props) => props.params.sectionId;
 /**
  * Default selector used by SectionContainer
  */
 
 const makeSelectSectionContainer = () => createSelector(
   selectSectionContainerDomain(),
-  (substate) => substate.toJS()
+  // selectRouteDepartmentSlug(),
+  selectRouteSectionId(),
+  (substate, sectionId) =>
+  Object.assign(substate.toJS(), { sectionId })
 );
 
 export default makeSelectSectionContainer;

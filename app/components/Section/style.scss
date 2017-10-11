@@ -1,0 +1,60 @@
+.map-container {
+    /* display: inline-block; */
+    // height: 100vh;
+    height: 500px;
+    width: 90%;
+    // margin: 50px;
+}
+
+.features {
+    // width: 80% !important;
+    // display: flex;
+    padding: 0 100px;
+    // justify-content: center;
+    // position: absolute;
+    // top: 0;
+    // right: 0;
+    // bottom: 0;
+    // width: 300px;
+    // overflow: auto;
+    // background: rgba(255, 255, 255, 0.8);
+}
+
+.icon {
+    background-image: url('../../../app/assets/indications/toilet.svg');
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+
+.toilet {
+    background-image: url('../../../app/assets/indications/toilet.svg');
+}
+.cashier {
+    background-image: url('../../../app/assets/indications/cashier.svg');
+}
+.elevator {
+    background-image: url('../../../app/assets/indications/elevator.svg');
+}
+.escalator {
+    background-image: url('../../../app/assets/indications/escalator.svg');
+}
+.exit {
+    background-image: url('../../../app/assets/indications/exit.svg');
+}
+.help {
+    background-image: url('../../../app/assets/indications/help.svg');
+}
+.fitting_room {
+    background-image: url('../../../app/assets/indications/fitting_room.svg');
+}
+.information {
+    background-image: url('../../../app/assets/indications/information.svg');
+}
+.restaurant {
+    background-image: url('../../../app/assets/indications/restaurant.svg');
+}
+.stairs {
+    background-image: url('../../../app/assets/indications/stairs.svg');
+}

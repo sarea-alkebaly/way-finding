@@ -6,15 +6,17 @@
 
 import { fromJS } from 'immutable';
 import {
-  DEFAULT_ACTION,
+  REQUEST_SECTION_SUCCEEDED,
 } from './constants';
 
-const initialState = fromJS({});
+const initialState = fromJS({
+  section: [],
+});
 
 function sectionContainerReducer(state = initialState, action) {
   switch (action.type) {
-    case DEFAULT_ACTION:
-      return state;
+    case REQUEST_SECTION_SUCCEEDED:
+      return state.set('section', action.section);
     default:
       return state;
   }

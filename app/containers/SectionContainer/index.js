@@ -6,12 +6,22 @@
 
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
 import makeSelectSectionContainer from './selectors';
+import { requestSection } from './actions';
 import Section from '../../components/Section';
 
 
 export class SectionContainer extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+  static propTypes = {
+    // departmentSlug: PropTypes.string.isRequired,
+    sectionId: PropTypes.string.isRequired,
+    requestSection: PropTypes.func.isRequired,
+  }
+
+  componentWillMount() {
+    this.props.requestSection(this.props.sectionId);
+  }
+
   render() {
     return (
       <div>
@@ -21,18 +31,12 @@ export class SectionContainer extends React.PureComponent { // eslint-disable-li
   }
 }
 
-SectionContainer.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-};
-// const mapStateToProps = makeSelectSectionContainer();
 
-const mapStateToProps = createStructuredSelector({
-  SectionContainer: makeSelectSectionContainer(),
-});
+const mapStateToProps = makeSelectSectionContainer();
 
 function mapDispatchToProps(dispatch) {
   return {
-    dispatch,
+    requestSection: (sectionId) => dispatch(requestSection(sectionId)),
   };
 }
 

@@ -24,7 +24,7 @@ export default class HomePage extends React.PureComponent { // eslint-disable-li
       <div className="">
         <HeaderContainer />
         <div className="homepage-container">
-          {this.props.children}  
+          {this.props.children}
         </div>
         <Footer />
       </div>

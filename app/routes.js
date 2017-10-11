@@ -102,9 +102,8 @@ export default function createRoutes(store) {
 
             importModules.catch(errorLoading);
           },
-        }, 
-        {
-          path: '/store/:departmentSlug/:sectionsId',
+        }, {
+          path: '/:departmentSlug/:sectionId',
           name: 'sectionContainer',
           getComponent(nextState, cb) {
             const importModules = Promise.all([

@@ -7,7 +7,7 @@ import { REQUEST_STORE, SELECT_DEPARTMENT } from './constants';
 
 // Individual exports for testing
 function fetchStoreFromServer(storeName) {
-  return fetch(`http://localhost:3000/api/stores/${storeName}`)
+  return fetch(`http://localhost:3000/api/store/${storeName}`)
     .then((res) => res.json());
 }
 

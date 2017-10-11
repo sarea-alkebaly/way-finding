@@ -19,12 +19,10 @@ class DepartmentList extends React.Component {
 
   // state = {};
 
-  componentWillReceiveProps(nextProps) {
-    // console.log(nextProps)
+  componentWillReceiveProps() {
+    // console.log(nextProps.department[0].sections)
     // this.state.sections = nextProps.department[0].sections;
   }
-
-  // selectSectionss = (department, section) => this.props.selectSection(department, section);
 
   filterSections = (event, department) => {
     let updatedSections = department.sections;
@@ -48,7 +46,7 @@ class DepartmentList extends React.Component {
     const sections = this.state.sections || department.sections;
     return sections.map((section) => (
       <div key={section.id} className="col-12 col-sm-6 col-md-4 col-lg-3 p-3">
-        <button 
+        <button
           className="t-underline--fancy-hover section"
           onClick={() => this.props.selectSection(department.slug, section.id)}
         >

@@ -5,11 +5,21 @@
  */
 
 import {
+  SELECT_SECTION,  
   REQUEST_DEPARTMENT,
   REQUEST_DEPARTMENT_SUCCEEDED,
   REQUEST_DEPARTMENT_FAILED,
-  SELECT_SECTION,
 } from './constants';
+
+export function selectSection(departmentSlug, sectionId) {
+  return {
+    type: SELECT_SECTION,
+    payload: {
+      departmentSlug,
+      sectionId,
+    },
+  };
+}
 
 export function requestDepartment(storeName, departmentName) {
   return {
@@ -32,15 +42,5 @@ export function requestDepartmentFailed(message) {
   return {
     type: REQUEST_DEPARTMENT_FAILED,
     message,
-  };
-}
-
-export function selectSection(departmentSlug, sectionsId) {
-  return {
-    type: SELECT_SECTION,
-    payload: {
-      departmentSlug,
-      sectionsId,
-    },
   };
 }

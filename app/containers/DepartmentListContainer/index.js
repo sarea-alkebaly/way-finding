@@ -38,8 +38,8 @@ function mapDispatchToProps(dispatch) {
   return {
     requestDepartment: (storeName, departmentName) =>
       dispatch(requestDepartment(storeName, departmentName)),
-    selectSection: (departmentSlug, sectionsId) =>
-      dispatch(selectSection(departmentSlug, sectionsId)),
+    selectSection: (departmentSlug, sectionId) =>
+      dispatch(selectSection(departmentSlug, sectionId)),
   };
 }
 
