@@ -10,7 +10,7 @@ import {
 } from './constants';
 
 const initialState = fromJS({
-  store: [],
+  store: {},
 });
 
 function linkListContainerReducer(state = initialState, action) {

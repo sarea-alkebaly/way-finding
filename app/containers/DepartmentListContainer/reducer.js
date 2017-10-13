@@ -10,7 +10,7 @@ import {
 } from './constants';
 
 const initialState = fromJS({
-  department: [],
+  department: {},
 });
 
 function departmentListContainerReducer(state = initialState, action) {

@@ -5,18 +5,19 @@
  */
 
 import {
-  SELECT_SECTION,  
+  SELECT_SECTION,
   REQUEST_DEPARTMENT,
   REQUEST_DEPARTMENT_SUCCEEDED,
   REQUEST_DEPARTMENT_FAILED,
 } from './constants';
 
-export function selectSection(departmentSlug, sectionId) {
+export function selectSection(departmentSlug, sectionId, floorSlug) {
   return {
     type: SELECT_SECTION,
     payload: {
       departmentSlug,
       sectionId,
+      floorSlug,
     },
   };
 }

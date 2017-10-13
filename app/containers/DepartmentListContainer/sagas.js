@@ -7,7 +7,7 @@ import { REQUEST_DEPARTMENT, SELECT_SECTION } from './constants';
 
 // Individual exports for testing
 function fetchDepartmentFromServer(storeName, departmentName) {
-  return fetch(`http://localhost:3000/api/store/${storeName}/${departmentName}`)
+  return fetch(`https://wayfinding-backend.herokuapp.com/api/departments/${departmentName}`)
     .then((res) => res.json());
 }
 
@@ -25,7 +25,7 @@ export function* defaultSaga() {
 }
 
 function* pushSection(action) {
-  yield put(push(`/${action.payload.departmentSlug}/${action.payload.sectionId}`));
+  yield put(push(`/${action.payload.floorSlug}/${action.payload.departmentSlug}/${action.payload.sectionId}`));
 }
 
 export function* selectSectionSaga() {

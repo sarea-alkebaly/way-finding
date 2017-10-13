@@ -7,7 +7,7 @@ import { requestStoresSucceeded, requestStoresFailed } from './actions';
 
 
 function fetchStoresFromServer() {
-  return fetch('http://localhost:3000/api/stores')
+  return fetch('https://wayfinding-backend.herokuapp.com/api/stores')
   .then((res) => res.json());
 }
 
@@ -21,7 +21,7 @@ function* fetchStores() {
 }
 
 function* pushStore(action) {
-  yield put(push(`/store/${action.store.name}`));
+  yield put(push(`/store/${action.store.slug}`));
 }
 
 export function* selectStoreSaga() {

@@ -83,7 +83,7 @@ export default function createRoutes(store) {
             importModules.catch(errorLoading);
           },
         }, {
-          path: '/store/:storeName/:departmentName',
+          path: '/stores/:storeName/:departmentName',
           name: 'departmentListContainer',
           getComponent(nextState, cb) {
             const importModules = Promise.all([
@@ -103,7 +103,7 @@ export default function createRoutes(store) {
             importModules.catch(errorLoading);
           },
         }, {
-          path: '/:departmentSlug/:sectionId',
+          path: '/:floorSlug/:departmentSlug/:sectionId',
           name: 'sectionContainer',
           getComponent(nextState, cb) {
             const importModules = Promise.all([

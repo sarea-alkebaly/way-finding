@@ -7,7 +7,7 @@ import { REQUEST_STORE, SELECT_DEPARTMENT } from './constants';
 
 // Individual exports for testing
 function fetchStoreFromServer(storeName) {
-  return fetch(`http://localhost:3000/api/store/${storeName}`)
+  return fetch(`https://wayfinding-backend.herokuapp.com/api/stores/${storeName}`)
     .then((res) => res.json());
 }
 
@@ -25,7 +25,7 @@ export function* defaultSaga() {
 }
 
 function* pushDepartment(action) {
-  yield put(push(`/store/${action.payload.storeName}/${action.payload.departmentName}`));
+  yield put(push(`/stores/${action.payload.storeName}/${action.payload.departmentName}`));
 }
 
 export function* selectDepartmentSaga() {

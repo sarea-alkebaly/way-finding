@@ -15,6 +15,10 @@ export class StoreContainer extends React.Component { // eslint-disable-line rea
     storeName: PropTypes.string.isRequired,
     requestStore: PropTypes.func.isRequired,
   }
+  // constructor(props) {
+  //   super(props);
+  //   // this.props.requestStore(props.storeName);
+  // }
 
   componentWillMount() {
     this.props.requestStore(this.props.storeName);

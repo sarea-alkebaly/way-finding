@@ -307,8 +307,8 @@ function setupDb() {
       name: 'BOSS',
       slug: 'boss',
       logo: 'http://localhost:8282/uploads/logos/a520ffe8-067f-4ad2-886a-fc538184f977.png',
-    }
-  }).value()
+    },
+  }).value();
 
   return db;
 }
